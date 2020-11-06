@@ -9,10 +9,6 @@ public class Test {
             "a","b","c","d"
         };
 
-        for (int i =0; i<javaArray.length; i++) {
-            System.out.println("Java : " + javaArray[i]);
-        }
-
         File f = new File(".");
         String path = f.getAbsolutePath().replace(".", "target\\debug\\java_rust.dll");
 
