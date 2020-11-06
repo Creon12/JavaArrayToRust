@@ -12,8 +12,6 @@ pub extern  fn Java_Test_toRustFromStringArray(
 {
     println!("rust function start");
 
-    // 배열 크기 가져오는건데..
-    
     if array.is_null()  {
         panic!("array is nul!!!!");
     }
@@ -28,6 +26,7 @@ pub extern  fn Java_Test_toRustFromStringArray(
             Err(err) => { panic!("err : {}", err) }
         };
 
+        // 그냥 문자열 받아서 출력
         let jstr = JString::from(item);
         let java_str = env.get_string(jstr).unwrap();
         let string_dat = java_str.to_str().unwrap();
@@ -43,6 +42,7 @@ pub extern  fn Java_Test_toRustFromStringArray(
 
     let string_class = env.find_class("java/lang/String").unwrap();
     
+    // 반환할 배열
     let obj_array = env.new_object_array(size, 
         string_class, fir_ele).unwrap();
 
